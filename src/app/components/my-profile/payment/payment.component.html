@@ -1,10 +1,10 @@
 <br>
 <br>
 <div>
-  <p *ngIf="defaultPaymentSet">Default payment set successfully!</p>
-  <md-tab-group>
+  <div class="alert alert-success" *ngIf="defaultPaymentSet"><strong>Default payment set successfully!</strong></div>
+  <md-tab-group (selectedIndexChange)="selectedBillingChange($event)" [selectedIndex]="selectedBillingTab">
     <md-tab label="List of Credit Cards">
-      <form (ngSubmit)="setDefaultPayment()">
+      <form>
         <table class="table">
           <thead>
           <tr>
@@ -16,18 +16,17 @@
           <tbody>
           <tr *ngFor="let userPayment of userPaymentList">
             <td>
-              <input type="radio" name="defaultUserPaymentId" [(ngModel)]="defaultUserPaymentId" [value]="userPayment.id" />
+              <input type="radio" name="defaultUserPayment" (click)="setDefaultPayment(userPayment)" [(ngModel)]="defaultUserPayment" [value]="userPayment" />
               <span>default</span>
             </td>
             <td>{{userPayment.cardName}}</td>
             <td>
               <a md-button (click)="onUpdatePayment(userPayment)"><i class="fa fa-pencil"></i></a>
-              <a md-button (click)="onRemovePayment(userPayment.id)"><i class="fa fa-times"></i></a>
+              <a md-button (click)="onRemovePayment(userPayment)"><i class="fa fa-times"></i></a>
             </td>
           </tr>
           </tbody>
         </table>
-        <button md-raised-button class="mat-primary" type="submit">Save</button>
       </form>
     </md-tab>
     <md-tab label="Add(Update) Credit Card">

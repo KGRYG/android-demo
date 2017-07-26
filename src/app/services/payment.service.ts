@@ -35,7 +35,7 @@ export class PaymentService {
   		'Content-Type' : 'application/json',
   		'x-auth-token' : localStorage.getItem("xAuthToken")
   	});
-  	return this.http.post(url, id, {headers: tokenHeader, withCredentials: true});
+  	return this.http.post(url, JSON.stringify(id), {headers: tokenHeader, withCredentials: true});
   }
 
   setDefaultPayment (id: number) {
@@ -45,6 +45,6 @@ export class PaymentService {
   		'Content-Type' : 'application/json',
   		'x-auth-token' : localStorage.getItem("xAuthToken")
   	});
-  	return this.http.post(url, id, {headers: tokenHeader, withCredentials: true});
+  	return this.http.post(url, JSON.stringify(id), {headers: tokenHeader, withCredentials: true});
   }
 }

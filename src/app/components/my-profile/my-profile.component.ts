@@ -15,7 +15,6 @@ export class MyProfileComponent implements OnInit {
   activeLinkIndex: number;
   dataFetched = false;
 
-
   constructor(
     private router: Router,
     private userService: UserService,

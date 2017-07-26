@@ -11,11 +11,11 @@ import {UserDataService} from "../../../services/user-data.service";
 })
 export class EditComponent implements OnInit, OnDestroy {
 
-  private updateSuccess = false;
-  private newPassword: string;
-  private incorrectPassword = false;
-  private currentPassword: string;
-  private user: User = new User();
+  updateSuccess = false;
+  newPassword: string;
+  incorrectPassword = false;
+  currentPassword: string;
+  user: User = new User();
   subscription: Subscription;
 
   constructor(private userService: UserService,
@@ -38,6 +38,7 @@ export class EditComponent implements OnInit, OnDestroy {
   onUpdateUserInfo () {
     this.userService.updateUserInfo(this.user, this.newPassword, this.currentPassword).subscribe(
       res => {
+        this.userData.setUser(this.user);
         this.updateSuccess = true;
       },
       error => {
