@@ -16,7 +16,9 @@ import {
   MdToolbarModule,
   MdGridListModule,
   MdSlideToggleModule,
-  MdProgressSpinnerModule
+  MdProgressSpinnerModule,
+  MdPaginatorModule,
+  MdTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -39,7 +41,9 @@ import {
     MdDialogModule,
     MdGridListModule,
     MdSlideToggleModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdPaginatorModule,
+    MdTableModule
   ]
 })
 export class CustomMaterialModule { }

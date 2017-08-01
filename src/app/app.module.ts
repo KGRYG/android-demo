@@ -26,6 +26,21 @@ import { OrdersComponent } from './components/my-profile/orders/orders.component
 import { PaymentComponent } from './components/my-profile/payment/payment.component';
 import { ShippingComponent } from './components/my-profile/shipping/shipping.component';
 import {UserDataService} from "./services/user-data.service";
+import { BookListComponent } from './components/book-list/book-list.component';
+import {BookService} from "./services/book.service";
+import {DataFilterPipe} from "./components/book-list/data-filter.pipe";
+import {DataTableModule} from 'angular2-datatable';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import {BookDataService} from "./services/book-data.service";
+import {CartService} from "./services/cart.service";
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { OrderComponent } from './components/order/order.component';
+import { ReviewComponent } from './components/order/review/review.component';
+import { OrderShippingComponent } from './components/order/order-shipping/order-shipping.component';
+import { OrderPaymentComponent } from './components/order/order-payment/order-payment.component';
+import {OrderDataService} from "./services/order-data.service";
+import {CheckoutService} from "./services/checkout.service";
+import {OrderSummaryComponent} from "./components/order-summary/order-summary.component";
 
 @NgModule({
   declarations: [
@@ -40,14 +55,24 @@ import {UserDataService} from "./services/user-data.service";
     EditComponent,
     OrdersComponent,
     PaymentComponent,
-    ShippingComponent
+    ShippingComponent,
+    BookListComponent,
+    DataFilterPipe,
+    BookDetailComponent,
+    ShoppingCartComponent,
+    OrderComponent,
+    ReviewComponent,
+    OrderShippingComponent,
+    OrderPaymentComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
     CustomMaterialModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTableModule
   ],
   providers: [
     AuthService,
@@ -57,7 +82,12 @@ import {UserDataService} from "./services/user-data.service";
     PaymentService,
     ShippingService,
     OrderService,
-    UserDataService
+    UserDataService,
+    BookService,
+    BookDataService,
+    CartService,
+    OrderDataService,
+    CheckoutService
   ],
   bootstrap: [AppComponent]
 })
