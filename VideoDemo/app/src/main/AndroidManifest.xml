@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    package="com.karen.demoapp">
-=======
-    package="com.sudomaster.demoapp">
->>>>>>> 9785d43da58b18dbb6bc0e69b50b5260a0258ae0
+    package="com.sudomaster.videodemo">
 
     <application
         android:allowBackup="true"
@@ -20,12 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-=======
->>>>>>> 9785d43da58b18dbb6bc0e69b50b5260a0258ae0
     </application>
 
 </manifest>

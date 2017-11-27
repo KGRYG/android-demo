@@ -3,11 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-<<<<<<< HEAD
-        applicationId "com.karen.demoapp"
-=======
-        applicationId "com.sudomaster.demoapp"
->>>>>>> 9785d43da58b18dbb6bc0e69b50b5260a0258ae0
+        applicationId "com.sudomaster.videodemo"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
