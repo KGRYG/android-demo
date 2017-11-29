@@ -7,109 +7,6 @@
     android:padding="5dp"
     tools:context="com.karen.braintrainer.MainActivity">
 
-    <TextView
-        android:id="@+id/countdownText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="29dp"
-        android:background="@color/colorAccent"
-        android:padding="5dp"
-        android:text="30s"
-        android:textSize="38sp"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/score"
-        android:layout_alignBottom="@+id/score"
-        android:layout_centerHorizontal="true"
-        android:text="2 + 3"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/countdownText"
-        android:background="@android:color/holo_orange_dark"
-        android:padding="5dp"
-        android:text="0/0"
-        android:textSize="38sp"
-        android:visibility="invisible" />
-
-    <GridLayout
-        android:id="@+id/answers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/countdownText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:visibility="invisible">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:background="#0066ff"
-            android:padding="50dp"
-            android:tag="0"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:background="#00cc66"
-            android:padding="50dp"
-            android:tag="1"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:background="#ff0066"
-            android:padding="50dp"
-            android:tag="2"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1"
-            android:background="#99ccff"
-            android:padding="50dp"
-            android:tag="3"
-            android:text="Button" />
-    </GridLayout>
-
-    <TextView
-        android:id="@+id/messageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/answers"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:text="message"
-        android:textSize="30sp"
-        android:visibility="invisible" />
-
     <Button
         android:id="@+id/goButton"
         android:layout_width="wrap_content"
@@ -121,4 +18,136 @@
         android:padding="20dp"
         android:text="GO!"
         android:textSize="80sp" />
+
+    <RelativeLayout
+        android:id="@+id/nestedRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <GridLayout
+            android:id="@+id/answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/countdownText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:background="#0066ff"
+                android:onClick="buttonTapped"
+                android:padding="50dp"
+                android:tag="0"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:background="#00cc66"
+                android:onClick="buttonTapped"
+                android:padding="50dp"
+                android:tag="1"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:background="#ff0066"
+                android:onClick="buttonTapped"
+                android:padding="50dp"
+                android:tag="2"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:background="#99ccff"
+                android:onClick="buttonTapped"
+                android:padding="50dp"
+                android:tag="3"
+                android:text="Button" />
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/countdownText"
+            android:background="@android:color/holo_orange_dark"
+            android:padding="5dp"
+            android:text="0/0"
+            android:textSize="38sp" />
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/score"
+            android:layout_alignBottom="@+id/score"
+            android:layout_centerHorizontal="true"
+            android:text="2 + 3"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/playAgainId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:onClick="playAgain"
+            android:text="Play Again"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/answers"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/countdownText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="29dp"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            android:text="30s"
+            android:textSize="38sp" />
+    </RelativeLayout>
+
 </RelativeLayout>
