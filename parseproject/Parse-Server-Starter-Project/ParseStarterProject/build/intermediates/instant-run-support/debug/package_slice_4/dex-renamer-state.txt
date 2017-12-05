@@ -1,0 +1,4 @@
+#Tue Dec 05 12:18:49 PST 2017
+base.0=/home/karen/AndroidStudioProjects/parseproject/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/transforms/dexMerger/debug/4
+path.0=classes.dex
+renamed.0=classes.dex

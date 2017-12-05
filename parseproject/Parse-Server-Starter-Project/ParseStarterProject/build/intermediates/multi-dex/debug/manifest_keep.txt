@@ -1,0 +1,3 @@
+# Referenced at /home/karen/AndroidStudioProjects/parseproject/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/manifests/full/debug/AndroidManifest.xml:30
+-keep class com.parse.starter.StarterApplication { <init>(...); }
+
