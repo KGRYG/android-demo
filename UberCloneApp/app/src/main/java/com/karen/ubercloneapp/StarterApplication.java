@@ -1,6 +1,7 @@
-package com.karen.instagram;
+package com.karen.ubercloneapp;
 
 import android.app.Application;
+
 import com.parse.Parse;
 import com.parse.ParseACL;
 
