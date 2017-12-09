@@ -101,6 +101,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void navigateToUserListActivity() {
+        Toast.makeText(SignUpActivity.this, "Sign Up successful", Toast.LENGTH_SHORT).show();
 
     }
 

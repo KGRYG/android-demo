@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void navigateToUserListActivity() {
+        Toast.makeText(MainActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
 
     }
 }
