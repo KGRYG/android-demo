@@ -5,7 +5,7 @@
     android:id="@+id/relLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.karen.twitterclone.MainActivity">
+    tools:context="com.karen.twitterclone.SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -26,35 +26,46 @@
         android:inputType="textPersonName" />
 
     <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/password"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/username"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/email"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/signIn"
+        android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="signIn"
-        android:text="Sign In" />
+        android:onClick="signUp"
+        android:text="Sign Up" />
 
     <TextView
-        android:id="@+id/signUp"
+        android:id="@+id/signIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         android:gravity="center"
-        android:text="Don't have an account? Sign Up."
+        android:text="Have an account? Sign In."
         android:textColor="@android:color/holo_blue_dark" />
 
 

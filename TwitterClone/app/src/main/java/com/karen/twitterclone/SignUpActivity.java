@@ -3,7 +3,6 @@ package com.karen.twitterclone;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -13,24 +12,25 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.LogInCallback;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener{
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener{
+
+    private static final String TAG = SignUpActivity.class.getSimpleName();
     private ImageView logo;
     private RelativeLayout relativeLayout;
-    private TextView signUpView;
+    private TextView signInView;
     private EditText username;
     private EditText password;
+    private EditText email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_up);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         initView();
     }
@@ -38,11 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        password.setOnKeyListener(MainActivity.this);
+        password.setOnKeyListener(SignUpActivity.this);
+        email = findViewById(R.id.email);
         logo = findViewById(R.id.imageView);
         relativeLayout = findViewById(R.id.relLayout);
-        signUpView = findViewById(R.id.signUp);
-        signUpView.setOnClickListener(this);
+        signInView = findViewById(R.id.signIn);
+        signInView.setOnClickListener(this);
         relativeLayout.setOnClickListener(this);
         logo.setOnClickListener(this);
     }
@@ -52,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.signUp:
-                signUp();
+            case R.id.signIn:
+                signIn();
                 break;
             case R.id.imageView:
             case R.id.relLayout:
@@ -70,9 +71,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 
-    private void signUp() {
-        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+    private void signIn() {
+        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void signUp(View view) {
+
+        if (username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
+            Toast.makeText(this, "A username, email and password are required.", Toast.LENGTH_SHORT).show();
+        } else {
+
+            ParseUser user = new ParseUser();
+            user.setUsername(username.getText().toString());
+            user.setPassword(password.getText().toString());
+            user.setEmail(email.getText().toString());
+
+            user.signUpInBackground(new SignUpCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e == null) {
+                        navigateToUserListActivity();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void navigateToUserListActivity() {
+
     }
 
     @Override
@@ -81,28 +110,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         return false;
-    }
-
-    public void signIn(View view) {
-        if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
-            Toast.makeText(this, "A username and password are required.", Toast.LENGTH_SHORT).show();
-        } else {
-
-            ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
-                @Override
-                public void done(ParseUser user, ParseException e) {
-                    if (e == null || user != null) {
-                        navigateToUserListActivity();
-                    } else {
-                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-        }
-    }
-
-    private void navigateToUserListActivity() {
-
     }
 }
