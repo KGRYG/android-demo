@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-
+            signIn(v);
         }
         return false;
     }
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void navigateToUserListActivity() {
-        Toast.makeText(MainActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(MainActivity.this, UserListActivity.class);
+        startActivity(intent);
     }
 }

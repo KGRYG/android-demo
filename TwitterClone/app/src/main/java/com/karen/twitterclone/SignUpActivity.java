@@ -101,14 +101,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void navigateToUserListActivity() {
-        Toast.makeText(SignUpActivity.this, "Sign Up successful", Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(SignUpActivity.this, UserListActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-
+            signUp(v);
         }
         return false;
     }

@@ -15,22 +15,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
-            android:label="Twitter - Log In"
-            >
+            android:label="Twitter - Log In">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SignUpActivity"
-            android:label="Twitter - Sign Up"
-            >
-
+            android:label="Twitter - Sign Up">
+        </activity>
+        <activity
+            android:name=".UserListActivity"
+            android:label="Twitter - User List">
+        </activity>
+        <activity android:name=".FeedActivity"
+            android:label="Twitter - Your Feed">
         </activity>
     </application>
 
