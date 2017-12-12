@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         Log.d(TAG, "onRestoreInstanceState: in");
-        textView.setText(savedInstanceState.getString(TEXT_CONTENTS));
         super.onRestoreInstanceState(savedInstanceState);
+        textView.setText(savedInstanceState.getString(TEXT_CONTENTS));
         Log.d(TAG, "onRestoreInstanceState: out");
 
     }
